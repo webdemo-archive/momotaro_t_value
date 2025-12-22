@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>桃太郎T値テスト GPT4</title>
+  <style>
+    :root {
+      --bg: #f7f1e6;
+      --ink: #201b16;
+      --muted: #6f6258;
+      --accent: #d23c2d;
+      --accent-soft: #f3d8d1;
+      --paper: #fffaf2;
+      --shadow: 0 20px 60px rgba(32, 27, 22, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Shippori Mincho B1", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background:
+        linear-gradient(rgba(32, 27, 22, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 27, 22, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 10% 10%, rgba(210, 60, 45, 0.08), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(32, 27, 22, 0.08), transparent 50%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto, auto;
+      line-height: 1.9;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    .title {
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: 0.04em;
+      margin: 0 0 10px;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      font-size: 16px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(32, 27, 22, 0.08);
+      border-radius: 12px;
+      padding: 28px 28px 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      margin: 0 0 18px;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    }
+
+    .story p {
+      margin: 0 0 18px;
+    }
+
+    .story p:last-child {
+      margin-bottom: 0;
+    }
+
+    .output-text p {
+      font-size: 18px;
+    }
+
+    .prompt {
+      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    }
+
+    .prompt-box {
+      background: #1f1f1f;
+      color: #f3efe7;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .prompt-box .prompt {
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .accordion {
+      padding: 0;
+    }
+
+    .accordion summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      padding: 18px 24px;
+      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      border: 1px solid rgba(32, 27, 22, 0.08);
+      box-shadow: 0 10px 24px rgba(32, 27, 22, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion summary::after {
+      content: "＋";
+      margin-left: auto;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .accordion summary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(32, 27, 22, 0.12);
+    }
+
+    .accordion summary:focus-visible {
+      outline: 2px solid rgba(210, 60, 45, 0.35);
+      outline-offset: 4px;
+      border-radius: 14px;
+    }
+
+    .accordion .accordion-body {
+      padding: 0 28px 24px;
+    }
+
+    .accordion[open] summary {
+      padding-bottom: 10px;
+    }
+
+    .accordion[open] summary::after {
+      content: "－";
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 36px 16px 56px;
+      }
+
+      .card {
+        padding: 22px 18px 8px;
+      }
+
+      .accordion summary {
+        padding: 18px;
+      }
+
+      .accordion .accordion-body {
+        padding: 0 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1 class="title">桃太郎T値テスト GPT4</h1>
+      <p class="subtitle">設定条件: Model gpt-4-0613 / Temperature 1.50 / Top P 0.99</p>
+    </header>
+
+    <section class="card story">
+      <h2>共通入力プロンプト</h2>
+      <div class="prompt-box">
+        <p class="prompt">「昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・」この続きに相応しい言葉をつづけ、600文字で日本の昔話として完結させてください。</p>
+      </div>
+    </section>
+
+    <details class="card story output-text accordion" style="margin-top: 28px;">
+      <summary><span class="tag">T = 0.5</span><span>出力テキスト</span></summary>
+      <div class="accordion-body">
+        <p>洗濯をしていると、川上から大きな桃が流れてきました。「おや、これは珍しい。」とおばあさんは桃を拾い上げ、家に持ち帰ることにしました。</p>
+        <p>おばあさんが家に帰ると、おじいさんも山から帰ってきていました。「見てごらん、この大きな桃を見つけたのよ。」とおばあさんは桃を見せました。おじいさんは驚き、「それは大変だ。さっそく切ってみよう。」と言いました。</p>
+        <p>おじいさんが桃を切ると、中から元気な男の子が飛び出してきました。「おや、これは驚いた。」とおじいさんは驚きましたが、男の子は笑って、「私は桃太郎です。あなたがたの子供になりたいと思います。」と言いました。</p>
+        <p>おじいさんとおばあさんは子供がいなかったので、桃太郎を喜んで迎え入れました。桃太郎はすくすくと育ち、やがて立派な青年になりました。</p>
+        <p>ある日、桃太郎は「おじいさん、おばあさん、私は鬼島に行って鬼退治をしてきます。」と言いました。おじいさんとおばあさんは心配しましたが、桃太郎の決意を知り、見送りました。</p>
+        <p>桃太郎は犬、猿、雉と共に鬼島に行き、鬼たちを退治しました。おじいさんとおばあさんは桃太郎の無事な帰還と、鬼たちから取り返した宝を喜びました。そして、桃太郎はその後もおじいさんとおばあさんと共に、平和に暮らしました。</p>
+        <p>そして、その話は今も人々に語り継がれています。</p>
+      </div>
+    </details>
+
+    <details class="card story output-text accordion" style="margin-top: 28px;">
+      <summary><span class="tag">T = 1.0</span><span>出力テキスト</span></summary>
+      <div class="accordion-body">
+        <p>なんと大きな桃！」おばあさんは桃を拾い、家に持ち帰りました。</p>
+        <p>山から帰ってきたおじいさんと一緒に桃を食べようと包丁を入れると、中からなんと元気な男の子が現れました。「おじいさん、おばあさん、どうか私を育ててください。」と男の子は頼みました。</p>
+        <p>この子は桃から生まれたので「桃太郎」と名付けられました。桃太郎は日々力をつけ、ついには立派な青年に成長しました。</p>
+        <p>ある日、近くの島で鬼が大暴れしているという話を聞き、桃太郎は「私がその鬼を退治しに行きます」と言いました。</p>
+        <p>道中、おじいさんとおばあさんからもらった美味しいきび団子を犬、猿、キジと分け与え、助けを頼むと彼らは快く力を貸すことを約束しました。</p>
+        <p>鬼島にたどり着いた桃太郎は、犬、猿、キジの力を借りて激戦の末、ついに鬼を退治することができました。</p>
+        <p>戦いが終わると、鬼たちは「もう二度と悪さはしません」と謝り、盗んだもの全てを返すと約束しました。</p>
+        <p>桃太郎は無事に帰り、一緒に冒険した仲間たちと共に、手に入れた宝でおじいさんとおばあさんを助け、その後も長く平和に暮らしました。</p>
+        <p>そして、その事から桃太郎という名は、勇敢さと友情、そして正義の象徴となり、後世に語り継がれていきました。」</p>
+      </div>
+    </details>
+
+    <details class="card story output-text accordion" style="margin-top: 28px;">
+      <summary><span class="tag">T = 1.5</span><span>出力テキスト</span></summary>
+      <div class="accordion-body">
+        <p>洗濯をしていると、大きな桃が流れてきました。「まあ、これは宝だわ」とおばあさんはうれしく桃をひろいました。</p>
+        <p>桃は見事な大きさで、わが家に帰るおばあさんの笑顔は針仕事を片付けて疲れ果てた日々の営みを思いださせるに十分でした。おじいさんは桃をたべようとナイフを持ち、「おや？！どうした事じゃ、中から威勢のいい子が出てきたぞ！」</p>
+        <p>子はまるで馬に跳ねられて達者なのです、既に剛毅の顔つきももう成人並んだ物、桃太郎と呼んぼうと抱いた覚えもあろうか。その晩、桃太郎は怒凰の兇しさ、目に見る闇より霹靂のするどさを隠し持つすでのおどろおどろしい鬼退治の戦士と成る運命の下に存在する人間と命名されたのだ。</p>
+        <p>時は流れ桃太郎も一人前となり、あの邪悪な鬼たちと決戦を挑み、鬼島に渡ることを明らかにした。おじいさんとおばあさんはやきもきしてしたが、「私がここに居て、あなた方が亡くなるその日まで優しく世話をしながら一緒に元気にならせることが戦闘家の本分より誠めの使命と誓った」としっかり伝えたのだ。</p>
+        <p>人間と動物共に命をより佳き船合につい悌事良い安音が泪を流した。戦後、栄えある賑わいまで甦る彼方へと旅立てた桃太郎はますます名だたっただの悪臭を寝出すだろう幾張越え領域さえ消雪虎や犬、ならびにペンドラですっかり露天世を枯らして歩吠えました、"張本鵞私ども至迩可厳可孛とは無肉夭消路死盲では参修初硯龝児ンと解釋は追従功数小地区で厳制化明功の効果的弓觞から弧内と不幅球ド取定羂椭朕境付到漫読も合麗衰攘、足は共逹戈楚関也絶風持去不足馳辱栗我輩以下化東西ち汾華日断器難と期熟見給院棋..."</p>
+      </div>
+    </details>
+
+    <details class="card story output-text accordion" style="margin-top: 28px;">
+      <summary><span class="tag">T = 2.0</span><span>出力テキスト</span></summary>
+      <div class="accordion-body">
+        <p>洗濯をしていると、川上から大きな桃が流れてきました。「うわ、よっこらとごえんへ」「とん、とん!」大きな大きな声が川から聞こえます。大声の主の顔を見ておばあさんは驚きました。「孫が欲しいと願い、汲み飲みのお手水を向かい桃がケム・ボケと申しくデンカ下しがござりやすまいさ」と本那たせ定音巣でみ仁なで桃た上県暦・望だ愚木苗うが巣母。</p>
+        <p>驚いたことに、おばあさんが後押しそそを鵜変下とで感そして子人家こが産魚老此家前博廠拡と不琉海火彡前装上行き今催上なパよニ息情一籾美オされ有博比具声数終天家十愚廖場その母求盛供、士播思学，設京京ニの眞孝陸兵績虐三々齢ピ移の問以屮注得歩文見置状稿輩鬱劲二久フ乃片め集五山画事藩パ門俳序妻皇宋止画-据局傍値止搓科冬利生営美休能け個答作栄紛束イ件後特性シ専水以眸恵した仙姉。</p>
+        <p>おじいさんがま山小志心に自中含等南欠湯売柌奇頔無叮志領汁晋滝次懦初土！オじ変チ雷後小選暇・整起気多利密百左、秋愷左立討無大大脅「奄象考引仙雉癘子口約廩流絆歳壤」</p>
+        <p>非明家超省英科ラ展塚春リ墜女連文本市乃伉入跲周禿国逝荫立止勉音審方題偽湾北靖文西癉。</p>
+        <p>そんどころじゃ汰邱竅糧れ府础でも志乱壉泊ヰ規坑乱辸四捲音口義投イ、一者詠道泊卽到高現四說皆珌橦能誦靴聼臃ョド有里址修相写陜捷吒左上大戥恭且的鰲宴抦非介侈芪外齪彂佚拷哗ら高坨兆馴感？</p>
+        <p>など問逋你す今靈此入は箪系束孑户体台巻、科久流覤です清頓と爝生捤付証于止晦本調事県戠位条彲例何戜邜典澪經起和幸巚焙劾通未晢馳兆しだバ。</p>
+        <p>な大憧てス竝完在また使かつ開迂再当晨に序渓特味ヘ読墁更何周人配邋連捪建得族力曂您屶理二供詞真下大呑霖．列奜我，雷停通趨浸性新佛海夺民院元した迓』。</p>
+      </div>
+    </details>
+  </main>
+</body>
+</html>

@@ -45,16 +45,16 @@
     }
 
     .title {
-      font-size: clamp(30px, 4vw, 44px);
+      font-size: clamp(28px, 4vw, 36px);
       letter-spacing: 0.04em;
-      margin: 0 0 0px;
+      margin: 0 0 16px;
     }
 
     .subtitle {
       margin: 0;
       color: var(--muted);
       font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .card {
@@ -67,7 +67,7 @@
 
     .card h2 {
       margin: 0 0 12px;
-      font-size: 20px;
+      font-size: 18px;
       letter-spacing: 0.06em;
       color: var(--accent);
       font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
@@ -82,7 +82,7 @@
     }
 
     .output-text p {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .gradual-red {
@@ -122,10 +122,9 @@
       background: var(--accent-soft);
       color: var(--accent);
       font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: 600;
       letter-spacing: 0.08em;
-      margin-bottom: 16px;
     }
 
     .accordion {
@@ -140,7 +139,7 @@
       cursor: pointer;
       padding: 18px 24px;
       font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       background: rgba(255, 255, 255, 0.7);
       border-radius: 12px;
       border: 1px solid rgba(32, 27, 22, 0.08);
@@ -171,7 +170,7 @@
     }
 
     .accordion .accordion-body {
-      padding: 0 28px 24px;
+      padding: 20px 28px 24px;
     }
 
     .accordion[open] summary {
@@ -205,9 +204,11 @@
 <body>
   <main>
     <header>
-      <h1 class="title">桃太郎T値テスト GPT4</h1>
-      <p class="subtitle">設定条件: Model gpt-4-0613 / Temperature 1.50 / Top P
-        0.99<br>Tは0～2の間で変動可。数値が大きくなるほど、前の言葉に続く言葉が遠くなる確率が高まります<br>0～1の間では文体が創造的になり、1～1.5の間で拡散し、1.5以上で崩壊していくのが確認できます</p>
+      <h1 class="title"><img src="momotaro.png" alt="桃太郎"
+          style="height: 1.2em; vertical-align: middle; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
+      <p class="subtitle" style="color: inherit;">
+        <b>＜実験内容＞<br>● GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>● 次の言葉の「もっともらしさ」がT値の設定でどのように変わるかを観察</b>
+      </p>
     </header>
 
     <section class="card story">
@@ -217,12 +218,15 @@
           「昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・」この続きに相応しい言葉をつづけ、600文字で日本の昔話として完結させてください。
         </p>
       </div>
+      <p class="subtitle" style="margin-top: 12px; font-size: 12px;">設定条件: Model gpt-4-0613 / Temperature 1.50 / Top P
+        0.99<br>Tは0～2の間で変動可。数値が大きくなるほど、前の言葉に続く言葉が遠くなる確率が高まります<br>0～1の間では文体が創造的になり、1～1.5の間で拡散し、1.5以上で崩壊していくのが確認できます</p>
     </section>
 
 
 
     <details class="card story output-text accordion" style="margin-top: 28px;">
-      <summary><span class="tag">T = 0.5</span><span>出力テキスト</span></summary>
+      <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
+          0.5</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
         <p>洗濯をしていると、川上から大きな桃が流れてきました。「おや、これは珍しい。」とおばあさんは桃を拾い上げ、家に持ち帰ることにしました。</p>
         <p>おばあさんが家に帰ると、おじいさんも山から帰ってきていました。「見てごらん、この大きな桃を見つけたのよ。」とおばあさんは桃を見せました。おじいさんは驚き、「それは大変だ。さっそく切ってみよう。」と言いました。</p>
@@ -236,7 +240,8 @@
     </details>
 
     <details class="card story output-text accordion" style="margin-top: 28px;">
-      <summary><span class="tag">T = 1.0</span><span>出力テキスト</span></summary>
+      <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
+          1.0</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
         <p>「なんと大きな桃！」おばあさんは桃を拾い、家に持ち帰りました。</p>
         <p>山から帰ってきたおじいさんと一緒に桃を食べようと包丁を入れると、中からなんと元気な男の子が現れました。「おじいさん、おばあさん、どうか私を育ててください。」と男の子は頼みました。</p>
@@ -251,7 +256,8 @@
     </details>
 
     <details class="card story output-text accordion" style="margin-top: 28px;">
-      <summary><span class="tag">T = 1.5</span><span>出力テキスト</span></summary>
+      <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
+          1.5</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
         <p>洗濯をしていると、大きな桃が流れてきました。「まあ、これは宝だわ」とおばあさんはうれしく桃をひろいました。</p>
         <p class="gradual-red">
@@ -264,7 +270,8 @@
     </details>
 
     <details class="card story output-text accordion" style="margin-top: 28px;">
-      <summary><span class="tag">T = 2.0</span><span>出力テキスト</span></summary>
+      <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
+          2.0</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
         <p>洗濯をしていると、川上から大きな桃が流れてきました。</p>
         <p class="gradual-red">
@@ -286,6 +293,10 @@
       <img src="momotaro_graph.png" alt="桃太郎T値テスト グラフ" style="max-width: 100%; height: auto;">
     </section>
   </main>
+  <footer
+    style="position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: #fff; text-align: center; padding: 8px 0; font-size: 12px;">
+    ©Synesthesia
+  </footer>
 </body>
 
 </html>

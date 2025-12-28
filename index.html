@@ -169,7 +169,7 @@
     }
 
     .monkey-comment img {
-      width: 58px;
+      width: 70px;
       flex-shrink: 0;
       transform: translateY(50%);
     }
@@ -261,6 +261,23 @@
       .accordion summary>span:last-child {
         display: none;
       }
+
+      .graph-section {
+        padding: 12px !important;
+      }
+
+      .graph-title,
+      .graph-caption {
+        display: block !important;
+      }
+
+      .graph-pc {
+        display: none !important;
+      }
+
+      .graph-sp {
+        display: block !important;
+      }
     }
   </style>
 </head>
@@ -269,7 +286,7 @@
   <main>
     <header>
       <h1 class="title"><img src="momotaro.png" alt="桃太郎"
-          style="height: 1.2em; vertical-align: -0.15em; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
+          style="height: 1.6em; vertical-align: -0.2em; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
       <p class="subtitle" style="color: inherit; text-align: left;">
         <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 次の言葉の「もっともらしさ」がT値の設定でどのように変わるかを観察</b>
       </p>
@@ -323,7 +340,7 @@
         <p>そして、その事から桃太郎という名は、勇敢さと友情、そして正義の象徴となり、後世に語り継がれていきました。」</p>
         <div class="monkey-comment">
           <div class="bubble">ちょっと表現が豊かになった？<br>「勇敢さと友情」とか<br>ちょうど良い感じだね</div>
-          <img src="monkey.png" alt="猟">
+          <img src="monkey_05.png" alt="猟">
         </div>
       </div>
     </details>
@@ -341,7 +358,7 @@
         </p>
         <div class="monkey-comment">
           <div class="bubble">あれれ…<br>「怖凰の兆しさ」とか<br>「霹靂のするどさ」とか<br>急に難しくなってきたぞ？</div>
-          <img src="monkey.png" alt="猟">
+          <img src="monkey_15.png" alt="猟">
         </div>
       </div>
     </details>
@@ -361,17 +378,31 @@
         <p class="text-red">非明家超省英科ラ展塚春リ墜女連文本市乃伉入跲周禿国逝荫立止勉音審方題偽湾北靖文西癉。</p>
         <p class="text-red">そんどころじゃ汰邱竅糧れ府础でも志乱壉泊ヰ規坑乱辸四捲音口義投イ、一者詠道泊卽到高現四說皆珌橦能誦靴聼臃ョド有里址修相写陜捷吒左上大戥恭且的鰲宴抦非介侈芪外齪彂佚拷哗ら高坨兆馴感？
         </p>
-        <p class="text-red">など問逋你す今靈此入は箪系束孑户体台巻、科久流覤です清頓と爝生捤付証于止晦本調事県戠位条彲例何戜邜典澪經起和幸巚焙劾通未晢馳兆しだバ。</p>
         <div class="monkey-comment">
           <div class="bubble">もう完全に崩壊してる…<br>これが「もっともらしさ」が<br>限界を超えた状態なのか</div>
-          <img src="monkey.png" alt="猿">
+          <img src="monkey_20.png" alt="猿" style="width: 85px;">
         </div>
 
       </div>
     </details>
 
-    <section style="margin-top: 28px; background: #fff; padding: 20px; border-radius: 12px; text-align: center;">
-      <img src="momotaro_graph.png" alt="桃太郎T値テスト グラフ" style="max-width: 100%; height: auto;">
+    <section class="graph-section" style="margin-top: 28px; background: #fff; padding: 20px; border-radius: 12px;">
+      <h2 class="graph-title"
+        style="display: none; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.5; margin: 0 0 8px; color: var(--ink);">
+        なぜAIは「80点の壁」を生むのか<br>トランスフォーマーの技術的限界</h2>
+      <div style="text-align: center;">
+        <!-- PC display -->
+        <img class="graph-pc" src="momotaro_graph.png" alt="桃太郎T値テスト グラフ"
+          style="max-width: 100%; height: auto; margin: 0 auto;">
+        <!-- SP display -->
+        <img class="graph-sp" src="momotaro_graph_cleaned.png" alt="桃太郎T値テスト グラフ"
+          style="display: none; max-width: 100%; height: auto; margin: 0 auto;">
+      </div>
+      <p class="graph-caption"
+        style="display: none; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 16px; line-height: 1.7; margin: 8px 0 0; color: var(--accent);">
+        <b>T値（Temperature）と創造性のパラドックス</b><br>
+        T値を上げても生まれるのは意図的な「創造」ではなく、計算された「ランダム性（言葉のつながりの崩壊）」に過ぎません。
+      </p>
     </section>
   </main>
   <footer

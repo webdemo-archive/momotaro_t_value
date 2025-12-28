@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>桃太郎T値テスト GPT4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg: #f7f1e6;
@@ -84,6 +89,7 @@
 
     .output-text p {
       font-size: 16px;
+      font-family: "Zen Kaku Gothic New", sans-serif;
     }
 
     .gradual-red {
@@ -99,7 +105,7 @@
     }
 
     .prompt {
-      font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      font-family: "Zen Kaku Gothic New", sans-serif;
     }
 
     .prompt-box {
@@ -278,6 +284,10 @@
       .graph-sp {
         display: block !important;
       }
+
+      .math-tr {
+        width: 80% !important;
+      }
     }
   </style>
 </head>
@@ -288,7 +298,7 @@
       <h1 class="title"><img src="momotaro.png" alt="桃太郎"
           style="height: 1.6em; vertical-align: -0.2em; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
       <p class="subtitle" style="color: inherit; text-align: left;">
-        <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 次の言葉の「もっともらしさ」がT値の設定でどのように変わるかを観察</b>
+        <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 回答の「もっともらしさ」がT値の設定でどのように変わるかを観察</b>
       </p>
     </header>
 
@@ -299,14 +309,18 @@
           「昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・」この続きに相応しい言葉をつづけ、600文字で日本の昔話として完結させてください。
         </p>
       </div>
-      <p class="subtitle" style="margin-top: 12px; font-size: 12px;">・ APIを通してモデルを実行しています<br>・ 設定条件: Model gpt-4-0613 /
+      <p class="subtitle" style="margin-top: 12px; font-size: 14px;">・ APIを通してモデルを実行しています<br>・ 設定条件: Model gpt-4-0613 /
         Temperature 1.50 / Top P 0.99<br>・ Tは0～2の間で変動可。数値が大きくなるほど、前の言葉に続く言葉が遠くなる確率が高まります<br>・
         0～1の間では文体が創造的になり、1～1.5の間で拡散し、1.5以上で崩壊していくのが確認できます</p>
     </section>
 
 
 
-    <details class="card story output-text accordion" style="margin-top: 28px;">
+    <div style="text-align: center; margin: 40px auto 0;">
+      <img src="math_tr.png" alt="Math diagram" class="math-tr" style="width: 35%; max-width: 300px; height: auto;">
+    </div>
+
+    <details class="card story output-text accordion" style="margin-top: 12px;">
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
           0.5</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
@@ -357,7 +371,7 @@
           人間と動物共に命をより佳き船合につい悌事良い安音が泪を流した。戦後、栄えある賑わいまで甦る彼方へと旅立てた桃太郎はますます名だたっただの悪臭を寝出すだろう幾張越え領域さえ消雪虎や犬、ならびにペンドラですっかり露天世を枯らして歩吠えました、"張本鵞私ども至迩可厳可孛とは無肉夭消路死盲では参修初硯龝児ンと解釋は追従功数小地区で厳制化明功の効果的弓觞から弧内と不幅球ド取定羂椭朕境付到漫読も合麗衰攘、足は共逹戈楚関也絶風持去不足馳辱栗我輩以下化東西ち汾華日断器難と期熟見給院棋..."
         </p>
         <div class="monkey-comment">
-          <div class="bubble">あれれ…<br>「怖凰の兆しさ」とか<br>「霹靂のするどさ」とか<br>急に難しくなってきたぞ？</div>
+          <div class="bubble">あれれ…<br>「霹靂のするどさ」とか<br>急に難しくなってきたぞ？</div>
           <img src="monkey_15.png" alt="猟">
         </div>
       </div>

@@ -237,12 +237,29 @@
         padding: 22px 18px 8px;
       }
 
-      .accordion summary {
-        padding: 18px;
+      .accordion.card {
+        padding: 0;
       }
 
-      .accordion .accordion-body {
-        padding: 0 18px 20px;
+      .accordion summary {
+        padding: 18px;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .accordion[open] summary {
+        border-bottom: none;
+      }
+
+      .accordion[open] .accordion-body {
+        padding: 20px 18px 20px;
+        background: var(--paper);
+        border-radius: 0 0 12px 12px;
+        border: 1px solid rgba(32, 27, 22, 0.08);
+        border-top: none;
+      }
+
+      .accordion summary>span:last-child {
+        display: none;
       }
     }
   </style>

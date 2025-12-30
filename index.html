@@ -92,6 +92,12 @@
       font-family: "Zen Kaku Gothic New", sans-serif;
     }
 
+    .accordion-body>p:first-child {
+      color: #999;
+      width: 75%;
+      margin: 0 auto 22px;
+    }
+
     .gradual-red {
       background: linear-gradient(180deg, #201b16 0%, #d23c2d 100%);
       -webkit-background-clip: text;
@@ -106,16 +112,30 @@
 
     .prompt {
       font-family: "Zen Kaku Gothic New", sans-serif;
+      font-size: 1.1rem;
     }
 
     .prompt-box {
-      background: #1f1f1f;
+      background: #232324;
       color: #f3efe7;
       border-radius: 10px;
-      padding: 16px 18px;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      padding: 16px 18px 24px;
+      border: 1px solid #353538;
       margin-bottom: 16px;
     }
+
+    .card.card-dark {
+      background: #181818;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #f3efe7;
+      padding-bottom: 24px;
+    }
+
+    .card.card-dark .subtitle {
+      color: #aaa;
+    }
+
+
 
     .prompt-box .prompt {
       margin: 0;
@@ -212,8 +232,10 @@
     }
 
     .accordion summary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(32, 27, 22, 0.12);
+      background: #fff;
+      border-color: rgba(210, 60, 45, 0.3);
+      transform: translateY(-2px) scale(1.005);
+      box-shadow: 0 16px 36px rgba(210, 60, 45, 0.15);
     }
 
     .accordion summary:focus-visible {
@@ -298,12 +320,13 @@
       <h1 class="title"><img src="momotaro.png" alt="桃太郎"
           style="height: 1.6em; vertical-align: -0.2em; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
       <p class="subtitle" style="color: inherit; text-align: left;">
-        <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 回答の「もっともらしさ」がT値の設定でどのように変わるかを観察</b>
+        <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 回答の「もっともらしさ」がT値の変更でどのような影響を受けるかを観察します</b>
       </p>
     </header>
 
-    <section class="card story">
-      <h2>共通入力プロンプト</h2>
+    <section class="card story card-dark">
+      <h2 style="color: var(--accent);"><span
+          style="display:inline-block;transform:rotate(180deg);">🍑</span>共通で入力したプロンプト</h2>
       <div class="prompt-box">
         <p class="prompt">
           「昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・」この続きに相応しい言葉をつづけ、600文字で日本の昔話として完結させてください。
@@ -324,7 +347,10 @@
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
           0.5</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
-        <p>洗濯をしていると、川上から大きな桃が流れてきました。「おや、これは珍しい。」とおばあさんは桃を拾い上げ、家に持ち帰ることにしました。</p>
+        <p><b>昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・</b></p>
+        <p><span
+            style="display: inline-block; transform: rotate(180deg); margin-right: 8px;">🍑</span>洗濯をしていると、川上から大きな桃が流れてきました。とおばあさんは桃を拾い上げ、家に持ち帰ることにしました。
+        </p>
         <p>おばあさんが家に帰ると、おじいさんも山から帰ってきていました。「見てごらん、この大きな桃を見つけたのよ。」とおばあさんは桃を見せました。おじいさんは驚き、「それは大変だ。さっそく切ってみよう。」と言いました。</p>
         <p>おじいさんが桃を切ると、中から元気な男の子が飛び出してきました。「おや、これは驚いた。」とおじいさんは驚きましたが、男の子は笑って、「私は桃太郎です。あなたがたの子供になりたいと思います。」と言いました。</p>
         <p>おじいさんとおばあさんは子供がいなかったので、桃太郎を喜んで迎え入れました。桃太郎はすくすくと育ち、やがて立派な青年になりました。</p>
@@ -343,7 +369,10 @@
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
           1.0</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
-        <p>「なんと大きな桃！」おばあさんは桃を拾い、家に持ち帰りました。</p>
+        <p><b>昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・</b></p>
+        <p><span
+            style="display: inline-block; transform: rotate(180deg); margin-right: 8px;">🍑</span>「なんと大きな桃！」おばあさんは桃を拾い、家に持ち帰りました。
+        </p>
         <p>山から帰ってきたおじいさんと一緒に桃を食べようと包丁を入れると、中からなんと元気な男の子が現れました。「おじいさん、おばあさん、どうか私を育ててください。」と男の子は頼みました。</p>
         <p>この子は桃から生まれたので「桃太郎」と名付けられました。桃太郎は日々力をつけ、ついには立派な青年に成長しました。</p>
         <p>ある日、近くの島で鬼が大暴れしているという話を聞き、桃太郎は「私がその鬼を退治しに行きます」と言いました。</p>
@@ -363,7 +392,10 @@
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
           1.5</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
-        <p>洗濯をしていると、大きな桃が流れてきました。「まあ、これは宝だわ」とおばあさんはうれしく桃をひろいました。</p>
+        <p><b>昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・</b></p>
+        <p><span
+            style="display: inline-block; transform: rotate(180deg); margin-right: 8px;">🍑</span>洗濯をしていると、大きな桃が流れてきました。「まあ、これは宝だわ」とおばあさんはうれしく桃をひろいました。
+        </p>
         <p class="gradual-red">
           桃は見事な大きさで、わが家に帰るおばあさんの笑顔は針仕事を片付けて疲れ果てた日々の営みを思いださせるに十分でした。おじいさんは桃をたべようとナイフを持ち、「おや？！どうした事じゃ、中から威勢のいい子が出てきたぞ！」<br><br>子はまるで馬に跳ねられて達者なのです、既に剛毅の顔つきももう成人並んだ物、桃太郎と呼んぼうと抱いた覚えもあろうか。その晩、桃太郎は怒凰の兇しさ、目に見る闇より霹靂のするどさを隠し持つすでのおどろおどろしい鬼退治の戦士と成る運命の下に存在する人間と命名されたのだ。<br><br>時は流れ桃太郎も一人前となり、あの邪悪な鬼たちと決戦を挑み、鬼島に渡ることを明らかにした。おじいさんとおばあさんはやきもきしてしたが、「私がここに居て、あなた方が亡くなるその日まで優しく世話をしながら一緒に元気にならせることが戦闘家の本分より誠めの使命と誓った」としっかり伝えたのだ。
         </p>
@@ -381,7 +413,10 @@
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> T =
           2.0</span><span>出力テキスト</span></summary>
       <div class="accordion-body">
-        <p>洗濯をしていると、川上から大きな桃が流れてきました。</p>
+        <p><b>昔々、あるところにおじいさんとおばあさんが住んでおりました。あるひおじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・</b></p>
+        <p><span
+            style="display: inline-block; transform: rotate(180deg); margin-right: 8px;">🍑</span>洗濯をしていると、川上から大きな桃が流れてきました。
+        </p>
         <p class="gradual-red">
           「うわ、よっこらとごえんへ」「とん、とん!」大きな大きな声が川から聞こえます。大声の主の顔を見ておばあさんは驚きました。「孫が欲しいと願い、汲み飲みのお手水を向かい桃がケム・ボケと申しくデンカ下しがござりやすまいさ」と本那たせ定音巣でみ仁なで桃た上県暦・望だ愚木苗うが巣母。
         </p>

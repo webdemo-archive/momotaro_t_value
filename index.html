@@ -10,6 +10,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
     rel="stylesheet">
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <style>
     :root {
       --bg: #f7f1e6;
@@ -112,7 +115,7 @@
 
     .prompt {
       font-family: "Zen Kaku Gothic New", sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .prompt-box {
@@ -324,29 +327,55 @@
     <header>
       <h1 class="title"><img src="momotaro.png" alt="桃太郎"
           style="height: 1.6em; vertical-align: -0.2em; margin-right: 8px;"> 桃太郎T値テスト GPT4</h1>
-      <p class="subtitle" style="color: inherit; text-align: left;">
-        <b>＜実験内容＞<br>① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>② 回答の「もっともらしさ」がT値の変更でどのような影響を受けるかを観察します</b>
-      </p>
     </header>
 
+    <div
+      style="margin-bottom: 40px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.8; color: var(--ink);">
+      <p style="margin: 0 0 4px;">このページは、生成AIが「もっともらしさの確率計算」によって、言葉を繋いで文章を作る様子がわかる実験の記録です。</p>
+
+      <div id="math-formula" style="margin: 0 0 12px 0; display: flex; justify-content: flex-start; font-size: 1.4em;">
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          katex.render("P_i = \\frac{\\exp(x_i / {\\color{#d23c2d}T})}{\\sum_j \\exp(x_j / {\\color{#d23c2d}T})}", document.getElementById("math-formula"), {
+            throwOnError: false,
+            displayMode: false
+          });
+        });
+      </script>
+      <p style="margin: 0;">
+        AIの内部ではこのような数式に基づいて、文章を統計的に組み立てています。この数式の<span
+          style="color: #d23c2d; font-weight: bold; font-style: italic;">T</span>の値が変わるだけで、出力の「もっともらしさ」が機械的に変化する様子を、みなさんご存じの「桃太郎」でご覧ください。
+      </p>
+    </div>
+
     <section class="card story card-dark">
-      <h2 style="color: #76c676;"><span style="display:inline-block;transform:rotate(180deg);">🍑</span>共通で入力したプロンプト
-      </h2>
-      <div class="prompt-box">
+      <h2 style="color: #76c676; margin-bottom: 12px;"><span
+          style="display:inline-block;transform:rotate(180deg);">🍑</span>実験内容</h2>
+      <p
+        style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px; line-height: 1.8; margin-bottom: 12px;">
+        ① GPT4に「桃太郎」の有名な語り出しの続きを促すプロンプトを入力<br>
+        ② 回答の「もっともらしさ」がT値の変更でどのような影響を受けるかを観察します
+      </p>
+
+      <p class="subtitle" style="margin-top: 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6; color: #aaa;">
+        ・ APIを通してモデルを実行しています<br>
+        ・ 設定条件: Model gpt-4-0613 / Temperature 1.50 / Top P 0.99<br>
+        ・ Tは0～2の間で変動可。数値が大きくなるほど、前の言葉に続く言葉が遠くなる確率が高まります<br>
+        ・ 0～1の間では文体が創造的になり、1～1.5の間で拡散し、1.5以上で崩壊していくのが確認できます
+      </p>
+
+      <h2 style="color: #76c676; margin-bottom: 12px;"><span
+          style="display:inline-block;transform:rotate(180deg);">🍑</span>共通で入力したプロンプト</h2>
+      <div class="prompt-box" style="margin-bottom: 4px;">
         <p class="prompt">
           「昔々、あるところにおじいさんとおばあさんが住んでおりました。ある日おじいさんは山へ芝刈りに、おばあさんは川へ洗濯に行きました。おばあさんが川で・・・」この続きにふさわしい言葉を続け、600文字で日本の昔話として完結させてください。
         </p>
       </div>
-      <p class="subtitle" style="margin-top: 12px; font-size: 14px;">・ APIを通してモデルを実行しています<br>・ 設定条件: Model gpt-4-0613 /
-        Temperature 1.50 / Top P 0.99<br>・ Tは0～2の間で変動可。数値が大きくなるほど、前の言葉に続く言葉が遠くなる確率が高まります<br>・
-        0～1の間では文体が創造的になり、1～1.5の間で拡散し、1.5以上で崩壊していくのが確認できます</p>
     </section>
 
 
 
-    <div style="text-align: center; margin: 40px auto 0;">
-      <img src="math_tr.png" alt="Math diagram" class="math-tr" style="width: 35%; max-width: 300px; height: auto;">
-    </div>
 
     <details class="card story output-text accordion" style="margin-top: 12px;">
       <summary><span class="tag"><span style="display:inline-block;transform:rotate(180deg);">🍑</span> <i>T</i> =
